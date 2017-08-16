@@ -3,11 +3,14 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cp          = require('child_process');
+var yaml        = require('js-yaml');
+var fs          = require('fs');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
+var baseURL = yaml.safeLoad(fs.readFileSync('_config.yml', 'utf8')).baseurl;
 
 /**
  * Build the Jekyll Site
@@ -31,7 +34,10 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
     browserSync({
         server: {
-            baseDir: '_site'
+            baseDir: '_site',
+			routes: {
+				[baseURL]: '_site'
+			}
         }
     });
 });

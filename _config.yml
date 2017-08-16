@@ -2,8 +2,8 @@ title: "Tensorflow Tutorial"
 author: "DSLab UGent - imec"
 description: "Tutorial about using Tensorflow for classification."
 more: "read more »"
-url: "https://github.ugent.be/pages/didpaepe/TensorflowTutorial"
-#baseurl: "" # comment out if in root directory
+url: "https://github.ugent.be"
+baseurl: "/pages/didpaepe/TensorflowTutorial" # comment out if in root directory
 
 comments:
 #  disqus: "niklasbuschmann"
