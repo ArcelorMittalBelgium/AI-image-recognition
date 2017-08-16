@@ -2,6 +2,23 @@
 layout: blank
 ---
 <main>
+  {% assign chapters = (site.chapter | sort: 'sequence') %}
+  {% for chapter in chapters %}
+  <article class="{% if site.style.articles == 'stripe' %}{% cycle 'light', 'dark' %}{% else %}{{ site.style.articles }}{% endif %}">
+    <header>
+      <h2><a href="{{ chapter.url | prepend: site.baseurl }}">{{ chapter.title }}</a></h2>
+    </header>
+    <div>
+{{ chapter.excerpt }}
+    </div>
+    <footer>
+      <p>{% unless chapter.excerpt == chapter.content %}<a class="ghost" href="{{ chapter.url | prepend: site.baseurl }}">{{ site.more }}</a>{% endunless %}</p>
+    </footer>
+  </article>
+  {% endfor %}
+</main>
+
+<main>
   {% for page in paginator.posts %}
   <article class="{% if site.style.articles == 'stripe' %}{% cycle 'light', 'dark' %}{% else %}{{ site.style.articles }}{% endif %}">
     <header>
