@@ -48,7 +48,7 @@ Scaling is just resizing of the image. OpenCV comes with a function cv2.resize()
      scaled_img = cv2.resize(img,(new_width, new_height), interpolation = cv2.INTER_CUBIC
      
 ###Translation 
-Translation is the shifting of object’s location. The translation in the x-direction is taken as t_x whereas the translation in the y-direction is defined by t_y.
+Translation is the shifting of objectâ€™s location. The translation in the x-direction is taken as t_x whereas the translation in the y-direction is defined by t_y.
    
     rows,cols = img.shape
     M = np.float32([[1,0,t_x],[0,1,t_y]])
@@ -108,12 +108,8 @@ Gamma correction, or often simply gamma, is the name of a nonlinear operation us
 [Gamme correction](http://www.codepool.biz/image-processing-opencv-gamma-correction.html)
 
 #Image smoothing/ blurring
-Image blurring is achieved by convolving the image with a low-pass filter kernel. It is useful for removing noise. It actually removes high frequency content (e.g: noise, edges) from the image resulting in edges being blurred when this is filter is applied. (Well, there are blurring techniques which do not blur edges). OpenCV provides mainly four types of blurring techniques.
-- Averaging is the most general blur technique,
-- Gaussian filtering is highly effective in removing gaussian noise from the image,
-- Median filtering is highly effective against salt-and-pepper noise in the images, 
-- bilateral filtering is highly effective in noise removal while keeping edges sharp. But the operation is slower compared to other filters. 
-
+Image blurring is achieved by convolving the image with a low-pass filter kernel. It is useful for removing noise. It actually removes high frequency content (e.g: noise, edges) from the image resulting in edges being blurred when this is filter is applied. (Well, there are blurring techniques which do not blur edges). OpenCV provides mainly four types of blurring techniques. Averaging is the most general blur technique, Gaussian filtering is highly effective in removing gaussian noise from the image, Median filtering is highly effective against salt-and-pepper noise in the images and bilateral filtering is highly effective in noise removal while keeping edges sharp.
+   
     average_blur_img = cv2.blur(img,(kernelsize_x,kernelsize_y))
     gaussian_blur_img = cv2.GaussianBlur(img,(kernelsize_x,kernelsize_y),0)
     median_blur_img = cv2.medianBlur(img,filtersize)
@@ -135,7 +131,7 @@ The basic idea is based on soil erosion , it erodes away the boundaries of foreg
 
 ##Dilation
 Normally, in cases like noise removal, erosion is followed by dilation. Because, erosion removes white noises, but it also shrinks our object. 
-So we dilate it. Since noise is gone, they won’t come back, but our object area increases. It is also useful in joining broken parts of an object.
+So we dilate it. Since noise is gone, they wonâ€™t come back, but our object area increases. It is also useful in joining broken parts of an object.
 
     kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
     dilation = cv2.dilate(img,kernel,iterations = 1)
