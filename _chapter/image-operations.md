@@ -7,10 +7,10 @@ OpenCV is the most widely used Computer Vision Library out there. OpenCV is a cr
 It mainly focuses on image processing, video capture and analysis including features like face detection and object detection.
 It is very powerful and offers many features suiting the needs of anyone requiring Image Processing.
 
-#installation
+#Installation
 
-sudo apt-get install libopencv-dev
-sudo apt-get install python-opencv
+'sudo apt-get install libopencv-dev'
+'sudo apt-get install python-opencv'
 
 # Online tutorials 
 
@@ -18,3 +18,4 @@ There are many online tutorials available on how to use the OpenCV framework.
 The following link describe a set of basic OpenCV tutorials http://docs.opencv.org/3.3.0/d9/df8/tutorial_root.html
 
 
+# Code block 
