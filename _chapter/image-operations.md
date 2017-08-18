@@ -41,7 +41,7 @@ The img is a numpy array where you can access the single pixel values or channel
 There are five main geometric transformations that can be performed on an image (i.e.,scaling, translation,rotation,cropping, affine transformation). 
 
 ###Scaling
-Scaling is just resizing of the image. OpenCV comes with a function cv2.resize() for this purpose. The size of the image can be specified manually, or you can specify the scaling factor. Different interpolation methods are used. Preferable interpolation methods are cv2.INTER_AREA for shrinking and cv2.INTER_CUBIC (slow) & cv2.INTER_LINEAR for zooming. By default, interpolation method used is cv2.INTER_LINEAR for all resizing purposes.  
+Scaling is just resizing of the image. OpenCV comes with a function cv2.resize() for this purpose. The size of the image can be specified manually, or you can specify the scaling factor. Different interpolation methods are used. Preferable interpolation methods are cv2.INTER_AREA for shrinking and cv2.INTER_CUBIC (slow) or cv2.INTER_LINEAR for zooming. By default, interpolation method used is cv2.INTER_LINEAR for all resizing purposes.  
      
      scaled_img = cv2.resize(img,None,fx=x_scaling_factor, fy=y_scaling_factor, interpolation = cv2.INTER_CUBIC)
      
