@@ -15,7 +15,7 @@ It is very powerful and offers many features suiting the needs of anyone requiri
 # Online tutorials 
 
 There are many online tutorials available on how to use the OpenCV framework. 
-The following link describe a set of basic OpenCV tutorials http://docs.opencv.org/3.3.0/d9/df8/tutorial_root.html
+The following link describe a set of basic OpenCV tutorials [tutorials](http://docs.opencv.org/3.3.0/d9/df8/tutorial_root.html)
 
 
 # Code block 
