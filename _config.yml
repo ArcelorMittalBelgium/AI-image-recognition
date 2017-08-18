@@ -4,6 +4,7 @@ description: "Tutorial about using Tensorflow for classification."
 more: "read more »"
 url: "https://github.ugent.be"
 baseurl: "/pages/didpaepe/TensorflowTutorial" # comment out if in root directory
+encoding: UTF-8 #force to use the corect encoding
 
 comments:
 #  disqus: "niklasbuschmann"
@@ -40,3 +41,4 @@ permalink: pretty
 defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
 exclude: ["node_modules", "gulpfile.js", "package.json"]
 plugin: []
+
