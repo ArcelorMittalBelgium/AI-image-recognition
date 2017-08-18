@@ -9,8 +9,8 @@ It is very powerful and offers many features suiting the needs of anyone requiri
 
 #Installation
 
-'sudo apt-get install libopencv-dev'
-'sudo apt-get install python-opencv'
+`sudo apt-get install libopencv-dev`
+`sudo apt-get install python-opencv`
 
 # Online tutorials 
 
