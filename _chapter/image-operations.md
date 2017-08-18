@@ -75,19 +75,69 @@ In affine transformation, all parallel lines in the original image will still be
     affine_img = cv2.warpAffine(img,M,(cols,rows))
     
 ##Image color analysis
-### Colorspace conversion
+###Colorspace conversion
 For color conversion, we use the function cv2.cvtColor(input_image, flag) where flag determines the type of conversion.
 The following example show the BGR (Blue, Green, Red) conversion to HSV(Hue, Saturation, Value)
 
-    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-## image histogram
+##Image histogram
+You can consider histogram as a graph or plot, which gives you an overall idea about the intensity distribution of an image. It is a plot with pixel values (ranging from 0 to 255, not always) in X-axis and corresponding number of pixels in the image on Y-axis.
 
-## image thresholding
-Different thresholding mechanisms and properties are available in Opencv. More detailed information can be found in the following [link](http://docs.opencv.org/trunk/d7/d4d/tutorial_py_thresholding.html)
+    from matplotlib import pyplot as plt
+    color = ('b','g','r')
+    for i,col in enumerate(color):
+        histr = cv2.calcHist([img],[i],None,[256],[0,256])
+        plt.plot(histr,color = col)
+        plt.xlim([0,256])
+    plt.show()
+###Histogram equalization 
+Consider an image whose pixel values are confined to some specific range of values only. For eg, brighter image will have all pixels confined to high values. But a good image will have pixels from all regions of the image. So you need to stretch this histogram to either ends (as given in below image, from wikipedia) and that is what Histogram Equalization does (in simple words). This normally improves the contrast of the image.OpenCV has a function to do this, cv2.equalizeHist(). Its input is just grayscale image and output is our histogram equalized image. 
+![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/histogram_equalization.png)
+    
+    equalized_img = cv2.equalizeHist(img)
 
-# image smoothing/ blurring
+##Image thresholding
+Different thresholding mechanisms and properties are available in Opencv, the following image gives an overview of the most standard techniques. More detailed information can be found in the following [link](http://docs.opencv.org/trunk/d7/d4d/tutorial_py_thresholding.html)
+![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/threshold.jpg)
 
-# morphological operations
+    ret,thresholded_img = cv2.threshold(img,lower_threshold,upper_threshold,cv2.THRESH_BINARY)
+    
+##Gamma correction 
+Gamma correction, or often simply gamma, is the name of a nonlinear operation used to encode and decode luminance or tristimulus values in video or still image systems.
+[Gamme correction](http://www.codepool.biz/image-processing-opencv-gamma-correction.html)
+
+#Image smoothing/ blurring
+Image blurring is achieved by convolving the image with a low-pass filter kernel. It is useful for removing noise. It actually removes high frequency content (e.g: noise, edges) from the image resulting in edges being blurred when this is filter is applied. (Well, there are blurring techniques which do not blur edges). OpenCV provides mainly four types of blurring techniques.
+- Averaging is the most general blur technique,
+- Gaussian filtering is highly effective in removing gaussian noise from the image,
+- Median filtering is highly effective against salt-and-pepper noise in the images, 
+- bilateral filtering is highly effective in noise removal while keeping edges sharp. But the operation is slower compared to other filters. 
+
+    average_blur_img = cv2.blur(img,(kernelsize_x,kernelsize_y))
+    gaussian_blur_img = cv2.GaussianBlur(img,(kernelsize_x,kernelsize_y),0)
+    median_blur_img = cv2.medianBlur(img,filtersize)
+    bilateral_blur_img = cv2.bilateralFilter(img,filter_diameter,sigmaColor,sigmaSpace )
+
+
+#Morphological operations
+Morphological operations apply a structuring element to an input image and generate an output image.The most basic morphological operations are: Erosion and Dilation. 
+The applications of this operation are as follows:
+- Removing noise
+- Isolation of individual elements and joining disparate elements in an image.
+- Finding of intensity bumps or holes in an image
+
+##Erosion 
+The basic idea is based on soil erosion , it erodes away the boundaries of foreground object.
+
+    kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
+    eroded_img = cv2.erode(img,kernel,iterations = 1)
+
+##Dilation
+Normally, in cases like noise removal, erosion is followed by dilation. Because, erosion removes white noises, but it also shrinks our object. 
+So we dilate it. Since noise is gone, they won’t come back, but our object area increases. It is also useful in joining broken parts of an object.
+
+    kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
+    dilation = cv2.dilate(img,kernel,iterations = 1)
 
 # edge detection + contour detection
