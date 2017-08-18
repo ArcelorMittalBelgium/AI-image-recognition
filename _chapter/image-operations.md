@@ -8,9 +8,9 @@ OpenCV is the most widely used Computer Vision Library out there. OpenCV is a cr
 # Installation
 
 You can install OpenCV in your linux system in two ways: from pre-built binaries available in linux repositories. 
-> `sudo apt-get install libopencv-dev`
 
-> `sudo apt-get install python-opencv`
+ `sudo apt-get install libopencv-dev`
+ `sudo apt-get install python-opencv`
 
 Or compile it from the source [link](http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html).
 
@@ -25,24 +25,23 @@ The following link describe a set of basic [OpenCV python tutorials](http://docs
 # Code blocks
 Before you get started it is important to load to correct python packages.
 
- `import cv2`
- `import numpy as np`
+    import cv2
+    import numpy as np
  
 ### Accessing and Modifying pixel values
 
 Image properties include number of rows, columns and channels, type of image data, number of pixels etc.
 The img is a numpy array where you can access the single pixel values or channels. 
 
- `img = cv2.imread('image_sample.jpg')`
- `cv2.imshow(img)`
+    img = cv2.imread('image_sample.jpg')
+    cv2.imshow(img)
  
 ### colorspace
 For color conversion, we use the function cv2.cvtColor(input_image, flag) where flag determines the type of conversion.
 
- `hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)`
- `cv2.imshow(img)`
- 
- `yuv = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV)`
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    cv2.imshow(img)
+    yuv = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV)
 
  
  
