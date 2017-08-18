@@ -137,7 +137,7 @@ The applications of this operation are as follows:
 - Removing noise
 - Isolation of individual elements and joining disparate elements in an image.
 - Finding of intensity bumps or holes in an image
-
+0
 ##Erosion 
 
 The basic idea is based on soil erosion , it erodes away the boundaries of foreground object.
