@@ -1,6 +1,25 @@
 ---
 ---
 
+@function reduce ($percent)
+  @return rgba(mix(#292929, #fff), $percent / 100)
+
+$blue: #4b6fff
+
+@import basic
+@import anchor
+@import block
+@import table
+@import highlight
+
+.light
+  color: black
+  background-color: #ffffff
+
+.dark
+  color: white
+  background-color: #282828
+
 $body: {{ site.style.body }}
 $nav: {{ site.style.nav }}
 $margin: {{ site.style.margin }}
@@ -42,6 +61,21 @@ article
       color: #949494
   footer
     padding-left: 0
+  h1
+    font-size: 1.5em
+    border-bottom: 1px solid
+  h2
+    font-size: 1.3em
+    margin-top: 1em
+  h3
+    font-size: 1em
+    margin-top: 1em
+    &:before
+      content: "»"
+      color: gray
+  h4
+    font-size: 0.9em
+    
 
 table
   width: 100%
