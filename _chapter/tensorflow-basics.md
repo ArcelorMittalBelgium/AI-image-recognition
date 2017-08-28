@@ -27,6 +27,7 @@ import tensorflow as tf
 Since you are building a calculation graph, everything you define are in fact references to values that will be filled in once you run your calculation.
 
 Constants are values that will not be changed.
+
 ```python
 # Constant 1-D Tensor populated with value list.
 # [1 2 3 4 5 6 7]
@@ -39,6 +40,7 @@ bias = tf.constant(-1.0, shape=[2, 3])
 ```
  
 Variables are values that will be changed by training algorithms.
+
 ```python
 # Create a variable.
 # [1, 2, 3]
@@ -50,6 +52,7 @@ weights = tf.Variable(tf.truncated_normal([1,2], stddev=0.1))
 ```
 
 Placeholders are values whose values will be provided when starting a calculation.
+
 ```python
 # The second argument is the shape of the input, it is used
 # to check dimensions in advance. Use None to not specify a dimension.
@@ -59,6 +62,7 @@ input = tf.placeholder(tf.float32, [None, 28*28])
 An operation is a calculation graph node that is the result
 of performing a calculation. It takes zero or more tensors as
 input and outputs zero or more tensors.
+
 ```python
 # Use the variable in the graph like any Tensor.
 y = tf.matmul(input, weights) + bias
