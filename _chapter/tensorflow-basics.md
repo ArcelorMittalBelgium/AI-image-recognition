@@ -165,6 +165,12 @@ INFO:tensorflow:Restoring parameters from ./save-folder/save-filename-500
 [501]
 ```
 
+# GPU assignment
+TODO
+
+# Tensorboard
+TODO
+
 # Examples
 
 - MNIST (using linear regression): [Tutorial](https://www.tensorflow.org/get_started/mnist/beginners) [code](https://github.com/tensorflow/tensorflow/blob/r1.3/tensorflow/examples/tutorials/mnist/mnist_softmax.py)
