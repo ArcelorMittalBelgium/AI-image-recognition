@@ -25,5 +25,5 @@ https://github.com/tensorflow/models/tree/master/slim#Tuning
 Still if you want to tweak the parameters yourself it is more advisable to implement the model itself so that you can tweak the learning rate, the dropout and some other loss operations. 
 
 One layered network 
-https://www.datacamp.com/community/tutorials/tensorflow-tutorial#gs.71yg_K4 (traffic sign detection code tensorflow
+https://www.datacamp.com/community/tutorials/tensorflow-tutorial#gs.71yg_K4 (traffic sign detection code tensorflow)
 
