@@ -182,3 +182,13 @@ dilation = cv2.dilate(img,kernel,iterations = 1)
 ```
 
 # edge detection + contour detection
+
+Defining the edges in an image is a basic task for general image understanding. The Canny Edge Detector is one of the most used detectors for this task. 
+It takes as input a gray scale image, and produces as output an image showing the positions of tracked intensity discontinuities.
+
+```python
+edges = cv2.Canny(img,threshold_1,threshold_2)
+```
+
+Contour detection? 
+http://docs.opencv.org/trunk/d4/d73/tutorial_py_contours_begin.html
