@@ -17,8 +17,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--model_path', default='/media/florian/ArcelorMittal/vgg_16.ckpt', type=str)
 parser.add_argument('--batch_size', default=8, type=int)    # lower in case of memory problems
 parser.add_argument('--num_workers', default=8, type=int)   # set equally to the amount of cpu processors
-parser.add_argument('--num_epochs1', default=10, type=int)
-parser.add_argument('--num_epochs2', default=10, type=int)
+parser.add_argument('--num_epochs1', default=100, type=int)
+parser.add_argument('--num_epochs2', default=100, type=int)
 parser.add_argument('--learning_rate1', default=1e-3, type=float)
 parser.add_argument('--learning_rate2', default=1e-5, type=float)
 parser.add_argument('--dropout_keep_prob', default=0.5, type=float)
