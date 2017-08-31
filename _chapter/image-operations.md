@@ -106,7 +106,7 @@ The following example show the BGR (Blue, Green, Red) conversion to HSV(Hue, Sat
 hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 ```
 
-## Image histogram
+### Image histogram
 
 You can consider histogram as a graph or plot, which gives you an overall idea about the intensity distribution of an image. It is a plot with pixel values (ranging from 0 to 255, not always) in X-axis and corresponding number of pixels in the image on Y-axis.
 
@@ -129,7 +129,7 @@ Consider an image whose pixel values are confined to some specific range of valu
 equalized_img = cv2.equalizeHist(img)
 ```
 
-## Image thresholding
+### Image thresholding
 
 Different thresholding mechanisms and properties are available in Opencv, the following image gives an overview of the most standard techniques. More detailed information can be found in the following [link](http://docs.opencv.org/trunk/d7/d4d/tutorial_py_thresholding.html)
 ![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/threshold.jpg)
@@ -138,12 +138,12 @@ Different thresholding mechanisms and properties are available in Opencv, the fo
 ret,thresholded_img = cv2.threshold(img,lower_threshold,upper_threshold,cv2.THRESH_BINARY)
 ```
     
-## Gamma correction 
+### Gamma correction 
 
 Gamma correction, or often simply gamma, is the name of a nonlinear operation used to encode and decode luminance or tristimulus values in video or still image systems.
 [Gamme correction](http://www.codepool.biz/image-processing-opencv-gamma-correction.html)
 
-# Image smoothing/blurring
+## Image smoothing/blurring
 
 Image blurring is achieved by convolving the image with a low-pass filter kernel. It is useful for removing noise. It actually removes high frequency content (e.g: noise, edges) from the image resulting in edges being blurred when this is filter is applied. (Well, there are blurring techniques which do not blur edges). OpenCV provides mainly four types of blurring techniques. Averaging is the most general blur technique, Gaussian filtering is highly effective in removing gaussian noise from the image, Median filtering is highly effective against salt-and-pepper noise in the images and bilateral filtering is highly effective in noise removal while keeping edges sharp.
   
@@ -154,7 +154,7 @@ median_blur_img = cv2.medianBlur(img,filtersize)
 bilateral_blur_img = cv2.bilateralFilter(img,filter_diameter,sigmaColor,sigmaSpace )
 ```
 
-# Morphological operations
+## Morphological operations
 
 Morphological operations apply a structuring element to an input image and generate an output image.The most basic morphological operations are: Erosion and Dilation. 
 The applications of this operation are as follows:
@@ -162,7 +162,7 @@ The applications of this operation are as follows:
 - Isolation of individual elements and joining disparate elements in an image.
 - Finding of intensity bumps or holes in an image
 
-## Erosion 
+### Erosion 
 
 The basic idea is based on soil erosion , it erodes away the boundaries of foreground object.
 
@@ -171,7 +171,7 @@ kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
 eroded_img = cv2.erode(img,kernel,iterations = 1)
 ```
 
-## Dilation
+### Dilation
 
 Normally, in cases like noise removal, erosion is followed by dilation. Because, erosion removes white noises, but it also shrinks our object. 
 So we dilate it. Since noise is gone, they won’t come back, but our object area increases. It is also useful in joining broken parts of an object.
@@ -181,7 +181,7 @@ kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
 dilation = cv2.dilate(img,kernel,iterations = 1)
 ```
 
-# edge detection + contour detection
+## Edge detection 
 
 Defining the edges in an image is a basic task for general image understanding. The Canny Edge Detector is one of the most used detectors for this task. 
 It takes as input a gray scale image, and produces as output an image showing the positions of tracked intensity discontinuities.
