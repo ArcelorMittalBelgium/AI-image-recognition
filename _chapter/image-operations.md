@@ -190,5 +190,3 @@ It takes as input a gray scale image, and produces as output an image showing th
 edges = cv2.Canny(img,threshold_1,threshold_2)
 ```
 
-Contour detection? 
-http://docs.opencv.org/trunk/d4/d73/tutorial_py_contours_begin.html
