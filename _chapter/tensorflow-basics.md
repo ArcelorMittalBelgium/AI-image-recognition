@@ -172,12 +172,12 @@ INFO:tensorflow:Restoring parameters from ./save-folder/save-filename-500
 TensorBoard is a suite of web applications for inspecting and understanding your TensorFlow runs and graphs. It helps engineers to analyze, visualize, and debug TensorFlow graphs. The advantage of this add-on is that you don't have to write your own visualization tools for the loss curve or the training and validation curves. 
 
 First you have to define the log directory, there you will store the log files
-```
+```python
 writer = tf.train.SummaryWriter(log_path, graph=tf.get_default_graph())
 ```
 
-The follwing code will write the cost and the accuracy for each batch run
-```
+The following code will write the cost and the accuracy for each batch run
+```python
 # create a summary for our cost and accuracy
 tf.scalar_summary("cost", cross_entropy)
 tf.scalar_summary("accuracy", accuracy)
@@ -190,7 +190,6 @@ _, summary = sess.run([train_op, summary_op], feed_dict={x: batch_x, y_: batch_y
             
 # write log data to the summary 
 writer.add_summary(summary, epoch * batch_count + i)
-
 ```
 
 Secondly you type in the terminal the following command and the Tensorboard get started on your localhost (http://localhost:6006).
@@ -198,9 +197,10 @@ Secondly you type in the terminal the following command and the Tensorboard get 
 tensorboard --logdir ='/home/logpath'
 ```
 
-Finally, you have some nice visualizations of your learning curve or accuracy and the other variables that you have defined. 
-https://www.tensorflow.org/get_started/summaries_and_tensorboard
-http://ischlag.github.io/2016/06/04/how-to-use-tensorboard/
+Finally, you have some nice visualizations of your learning curve or accuracy and the other variables that you have defined.
+
+[https://www.tensorflow.org/get_started/summaries_and_tensorboard]()
+[http://ischlag.github.io/2016/06/04/how-to-use-tensorboard/]()
 
 # Examples
 
