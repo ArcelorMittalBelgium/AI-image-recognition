@@ -16,8 +16,8 @@ You can install OpenCV in your linux system in two ways: from pre-built binaries
 Or compile it from the source [link](http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html).
 
 More information on the installation procedure on Windows can be found in the following links: 
-- [python 2](http://docs.opencv.org/3.2.0/d5/de5/tutorial_py_setup_in_windows.html)
-- [python 3](https://www.solarianprogrammer.com/2016/09/17/install-opencv-3-with-python-3-on-windows/)
+- [Python 2](http://docs.opencv.org/3.2.0/d5/de5/tutorial_py_setup_in_windows.html)
+- [Python 3](https://www.solarianprogrammer.com/2016/09/17/install-opencv-3-with-python-3-on-windows/)
 
 Verify your installation using the following commands (in a python shell/notebook):
 
@@ -28,9 +28,7 @@ print(cv2.__version__)
 
 # Online tutorials 
 
-There are many online tutorials available on how to use the OpenCV framework. 
-The following link describe a set of basic [OpenCV python tutorials](http://docs.opencv.org/3.2.0/d6/d00/tutorial_py_root.html)
-
+Many [tutorials for the OpenCV library](http://docs.opencv.org/3.2.0/d6/d00/tutorial_py_root.html) can be found online.
 
 # Code blocks
 Before you get started it is important to load to correct python packages.
@@ -53,11 +51,11 @@ cv2.waitKey(0)
  
 ## Geometric transformations
 
-There are five main geometric transformations that can be performed on an image (i.e.,scaling, translation,rotation,cropping, affine transformation). 
+There are five main geometric transformations that can be performed on an image: scaling, translation, rotation, cropping and affine transformation. 
 
 ### Scaling
 
-Scaling is just resizing of the image. OpenCV comes with a function cv2.resize() for this purpose. The size of the image can be specified manually, or you can specify the scaling factor. Different interpolation methods are used. Preferable interpolation methods are cv2.INTER_AREA for shrinking and cv2.INTER_CUBIC (slow) or cv2.INTER_LINEAR for zooming. By default, interpolation method used is cv2.INTER_LINEAR for all resizing purposes.  
+Scaling is just resizing of the image. OpenCV comes with a function `cv2.resize()` for this purpose. The size of the image can be specified manually, or you can specify the scaling factor. Different interpolation methods are used. Preferable interpolation methods are `cv2.INTER_AREA` for shrinking and `cv2.INTER_CUBIC` (slow) or `cv2.INTER_LINEAR` for zooming. By default, interpolation method used is `cv2.INTER_LINEAR` for all resizing purposes.  
      
 ```python
 scaled_img = cv2.resize(img,None,fx=x_scaling_factor, fy=y_scaling_factor, interpolation = cv2.INTER_CUBIC)
@@ -67,7 +65,7 @@ scaled_img = cv2.resize(img,(new_width, new_height), interpolation = cv2.INTER_C
      
 ### Translation 
 
-Translation is the shifting of object’s location. The translation in the x-direction is taken as t_x whereas the translation in the y-direction is defined by t_y.
+Translation is the shifting of object’s location. The translation in the x-direction is taken as `t_x` whereas the translation in the y-direction is defined by `t_y`.
    
 ```python
 rows,cols = img.shape
@@ -77,7 +75,7 @@ translated_img = cv2.warpAffine(img,M,(cols,rows))
 
 ### Rotation
 
-OpenCV provides scaled rotation with adjustable center of rotation so that you can rotate at any location you prefer.To find this transformation matrix, OpenCV provides a function, cv2.getRotationMatrix2D where you define the rotation center and the rotation angle. 
+OpenCV provides scaled rotation with adjustable center of rotation so that you can rotate at any location you prefer. To find this transformation matrix, OpenCV provides a function, `cv2.getRotationMatrix2D` where you define the rotation center and the rotation angle. 
 
 ```python
 rows,cols = img.shape
@@ -95,7 +93,7 @@ cropped_img = img[startpoint_x:endpoint_x, startpoint_y:endpoint_y]
 
 ### Affine Transformation 
 
-In affine transformation, all parallel lines in the original image will still be parallel in the output image. To find the transformation matrix, we need three points from input image and their corresponding locations in output image. Then cv2.getAffineTransform will create a 2x3 matrix which is to be passed to cv2.warpAffine.
+In affine transformation, all parallel lines in the original image will still be parallel in the output image. To find the transformation matrix, we need three points from input image and their corresponding locations in output image. Then `cv2.getAffineTransform` will create a 2x3 matrix which is to be passed to `cv2.warpAffine`.
 
 ```python
 pts_old_image = np.float32([[pt1_x,pt1_y],[pt2_x,pt2_y],[pt3_x,pt3_y]])
@@ -108,7 +106,7 @@ affine_img = cv2.warpAffine(img,M,(cols,rows))
 
 ### Colorspace conversion
 
-For color conversion, we use the function cv2.cvtColor(input_image, flag) where flag determines the type of conversion.
+For color conversion, we use the function `cv2.cvtColor(input_image, flag)` where `flag` determines the type of conversion.
 The following example show the BGR (Blue, Green, Red) conversion to HSV(Hue, Saturation, Value)
 
 ```python
@@ -131,7 +129,8 @@ plt.show()
     
 ### Histogram equalization 
 
-Consider an image whose pixel values are confined to some specific range of values only. For eg, brighter image will have all pixels confined to high values. But a good image will have pixels from all regions of the image. So you need to stretch this histogram to either ends (as given in below image, from wikipedia) and that is what Histogram Equalization does (in simple words). This normally improves the contrast of the image.OpenCV has a function to do this, cv2.equalizeHist(). Its input is just grayscale image and output is our histogram equalized image. 
+Consider an image whose pixel values are confined to some specific range of values only. For eg, brighter image will have all pixels confined to high values. But a good image will have pixels from all regions of the image. So you need to stretch this histogram to either ends (as given in below image, from wikipedia) and that is what Histogram Equalization does (in simple words). This normally improves the contrast of the image. OpenCV has a function to do this, `cv2.equalizeHist()`. Its input is just grayscale image and output is our histogram equalized image.
+
 ![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/histogram_equalization.png)
     
 ```python
@@ -140,7 +139,8 @@ equalized_img = cv2.equalizeHist(img)
 
 ### Image thresholding
 
-Different thresholding mechanisms and properties are available in Opencv, the following image gives an overview of the most standard techniques. More detailed information can be found in the following [link](http://docs.opencv.org/trunk/d7/d4d/tutorial_py_thresholding.html)
+[Different thresholding mechanisms and properties are available in OpenCV](http://docs.opencv.org/trunk/d7/d4d/tutorial_py_thresholding.html), the following image gives an overview of the most standard techniques.
+
 ![](http://opencv-python-tutroals.readthedocs.io/en/latest/_images/threshold.jpg)
 
 ```python
@@ -149,8 +149,7 @@ ret,thresholded_img = cv2.threshold(img,lower_threshold,upper_threshold,cv2.THRE
     
 ### Gamma correction 
 
-Gamma correction, or often simply gamma, is the name of a nonlinear operation used to encode and decode luminance or tristimulus values in video or still image systems.
-[Gamme correction](http://www.codepool.biz/image-processing-opencv-gamma-correction.html)
+[Gamma correction](http://www.codepool.biz/image-processing-opencv-gamma-correction.html), or often simply gamma, is the name of a nonlinear operation used to encode and decode luminance or tristimulus values in video or still image systems.
 
 ## Image smoothing/blurring
 
@@ -165,15 +164,15 @@ bilateral_blur_img = cv2.bilateralFilter(img,filter_diameter,sigmaColor,sigmaSpa
 
 ## Morphological operations
 
-Morphological operations apply a structuring element to an input image and generate an output image.The most basic morphological operations are: Erosion and Dilation. 
-The applications of this operation are as follows:
+Morphological operations apply a structuring element to an input image and generate an output image. The most basic morphological operations are erosion and dilation. 
+The applications of these operations are as follows:
 - Removing noise
-- Isolation of individual elements and joining disparate elements in an image.
+- Isolation of individual elements and joining disparate elements in an image
 - Finding of intensity bumps or holes in an image
 
 ### Erosion 
 
-The basic idea is based on soil erosion , it erodes away the boundaries of foreground object.
+The basic idea is based on soil erosion, it erodes away the boundaries of foreground object.
 
 ```python
 kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
@@ -182,8 +181,7 @@ eroded_img = cv2.erode(img,kernel,iterations = 1)
 
 ### Dilation
 
-Normally, in cases like noise removal, erosion is followed by dilation. Because, erosion removes white noises, but it also shrinks our object. 
-So we dilate it. Since noise is gone, they won’t come back, but our object area increases. It is also useful in joining broken parts of an object.
+Normally, in cases like noise removal, erosion is followed by dilation. Erosion removes white noises, but also shrinks our object, so we dilate it to regain the object area. It is also useful in joining broken parts of an object.
 
 ```python
 kernel = np.ones((kernelsize_x,kernelsize_y),np.uint8)
