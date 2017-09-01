@@ -8,10 +8,10 @@ In practice, very few people train an entire Convolutional Network from scratch 
 
 There are two major transfer learning scenarios:
 
-- Finetuning the network: Instead of random initializaion, we initialize the network with a pretrained network, similar to the one that is trained on imagenet 1000 dataset. The rest of the training looks as usual. It is common to use a smaller learning rate because we expect that the ConvNet weights are relatively good, so we don’t wish to distort them too quickly and too much (especially while the new Linear Classifier above them is being trained from random initialization).
+- Finetuning the network: Instead of random initializaion, we initialize the network with a pretrained network, similar to the one that is trained on imagenet 1000 dataset. The rest of the training looks as usual. It is common to use a smaller learning rate because we expect that the ConvNet weights are relatively good, so we donâ€™t wish to distort them too quickly and too much (especially while the new Linear Classifier above them is being trained from random initialization).
 
 
-- ConvNet as fixed feature extractor: Take a ConvNet pretrained on ImageNet, remove the last fully-connected layer (this layer’s outputs are the 1000 or more class scores for a different task like ImageNet), then treat the rest of the ConvNet as a fixed feature extractor for the new dataset. Finally train a linear classifier (e.g. Linear SVM or Softmax classifier) for the extracted ConvNet features.
+- ConvNet as fixed feature extractor: Take a ConvNet pretrained on ImageNet, remove the last fully-connected layer (this layerâ€™s outputs are the 1000 or more class scores for a different task like ImageNet), then treat the rest of the ConvNet as a fixed feature extractor for the new dataset. Finally train a linear classifier (e.g. Linear SVM or Softmax classifier) for the extracted ConvNet features.
 
 source: Stanford computer vision course: CS231 http://cs231n.github.io/transfer-learning/
 
@@ -39,4 +39,3 @@ Set the punishment for the wrongly classified examples of the minority classes h
     - Hybrid approach.
 
 Furthermore, it is important to use alternative metrics(i.e.,recall, precision, confusion-matrices) instead of the accuracy to validate adn optimize the model. 
-
