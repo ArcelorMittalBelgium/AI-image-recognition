@@ -3,7 +3,7 @@ title: "Image Operations"
 sequence: 4
 ---
 
-OpenCV is the most widely used Computer Vision Library out there. OpenCV is a cross-platform library using which we can develop real-time computer vision applications. It mainly focuses on image processing, video capture and analysis including features like face detection and object detection.It is very powerful and offers many features suiting the needs of anyone requiring Image Processing.
+OpenCV is the most widely used Computer Vision Library out there. OpenCV is a cross-platform library using which we can develop real-time computer vision applications. It mainly focuses on image processing, video capture and analysis including features like face detection and object detection. It is very powerful and offers many features suiting the needs of anyone requiring Image Processing.
 
 
 # Installation
@@ -15,7 +15,16 @@ You can install OpenCV in your linux system in two ways: from pre-built binaries
 
 Or compile it from the source [link](http://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html).
 
-More information on the installation procedure on Windows can be found in the following [link](http://docs.opencv.org/3.2.0/d5/de5/tutorial_py_setup_in_windows.html).
+More information on the installation procedure on Windows can be found in the following links: 
+- [python 2](http://docs.opencv.org/3.2.0/d5/de5/tutorial_py_setup_in_windows.html)
+- [python 3](https://www.solarianprogrammer.com/2016/09/17/install-opencv-3-with-python-3-on-windows/)
+
+Verify your installation using the following commands (in a python shell/notebook):
+
+```python
+import cv2
+print(cv2.__version__)
+```
 
 # Online tutorials 
 
