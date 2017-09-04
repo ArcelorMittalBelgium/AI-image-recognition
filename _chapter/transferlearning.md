@@ -23,7 +23,7 @@ Finetuning an existing network with Tensorflow can be done in different ways. Th
 In the online Tensorflow repository there is a [description on how to train/finetune your model](https://github.com/tensorflow/models/tree/master/slim#Tuning) with some arguments via the terminal.
 
 Still if you want to tweak the parameters yourself it is more advisable to implement the model itself so that you can tweak the learning rate, the dropout and some other loss operations. 
-The tensorflow_vgg.py code example (TODO add link!) gives an implementation of the VGG network as a fixed feature extractor and where the last fully connected layer is replaced and retrained on the new amount of classes.
+The [tensorflow_vgg.py code example](../../code/tensorflow_vgg.py){:target="_blank"} gives an implementation of the VGG network as a fixed feature extractor and where the last fully connected layer is replaced and retrained on the new amount of classes.
 
 # Dataset class imbalance
 This is common problem in machine learning, the number of data samples for particular classes is extremely larger than the number of samples of another class. 
@@ -38,4 +38,4 @@ Set the punishment for the wrongly classified examples of the minority classes h
     - Undersampling,  removing some of the majority classes or randomly selecting some of them,
     - Hybrid approach.
 
-Furthermore, it is important to use alternative metrics (i.e.,recall, precision, confusion-matrices) instead of the accuracy to validate and optimize the model. 
+Furthermore, it is important to use alternative metrics (i.e. recall, precision, confusion-matrices) instead of the accuracy to validate and optimize the model. 

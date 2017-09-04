@@ -177,6 +177,7 @@ writer = tf.train.SummaryWriter(log_path, graph=tf.get_default_graph())
 ```
 
 The following code will write the cost and the accuracy for each batch run
+
 ```python
 # create a summary for our cost and accuracy
 tf.scalar_summary("cost", cross_entropy)
