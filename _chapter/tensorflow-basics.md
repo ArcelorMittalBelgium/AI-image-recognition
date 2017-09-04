@@ -13,6 +13,7 @@ approach as used in Theano or Torch.
 Lets take a look at the most important concepts.
 
 References:
+
 - [API docs](https://www.tensorflow.org/api_docs/python/)
 - [Tensorflow getting started](https://www.tensorflow.org/get_started/)
 
