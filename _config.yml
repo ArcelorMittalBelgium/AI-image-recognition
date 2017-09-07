@@ -2,8 +2,8 @@ title: "Tensorflow Tutorial"
 author: "DSLab UGent - imec"
 description: "Tutorial about using Tensorflow for classification."
 more: "read more »"
-url: "https://github.ugent.be"
-baseurl: "/pages/didpaepe/TensorflowTutorial" # comment out if in root directory
+url: "https://arcelormittalbelgium.github.io"
+baseurl: "/AI-image-recognition" # comment out if in root directory
 encoding: UTF-8 #force to use the corect encoding
 
 comments:
