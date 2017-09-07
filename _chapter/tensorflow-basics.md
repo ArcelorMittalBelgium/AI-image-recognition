@@ -56,7 +56,7 @@ Placeholders are values whose values will be provided when starting a calculatio
 
 ```python
 # The second argument is the shape of the input, it is used
-# to check dimensions in advance. Use None to not specify a dimension.
+# to check dimensions in advance. Use None to leave that dimension variable.
 input = tf.placeholder(tf.float32, [None, 28*28])
 ```
 
@@ -71,29 +71,49 @@ y = tf.matmul(input, weights) + bias
 
 # (Interactive) session and the computational graph
 
-A session allows you to evaluate the nodes in the computational graph.
-A session holds resources that should be released when it is not longer needed.
+A session represents a connection with the computational backend.
+The session allows us to execute operations and evaluate tensors.
+Only the operations that we specify, and their dependent operations, will be executed.
 
 ```python
 # Define operations in advance
-tensor = tf.Variable(tf.truncated_normal([2, 2]))
+tensor = tf.Variable(tf.truncated_normal([1])) # A tensor
+init_op = tf.global_variables_initializer() # An operation
 
 # Run the graph
 # Using the `close()` method.
 sess = tf.Session()
-sess.run(tf.global_variables_initializer()) # Initialize variables before evaluation.
-print(sess.run(tensor.eval())
+res1 = sess.run(init_op) # Initialize variables before evaluation.
+res2 = sess.run(tensor)
 sess.close()
 
-# Using "with" sets the "default sessions", making things a bit shorter
+print(res1) # None - operations don't return anything
+print(res2) # [ 0.52168393 ] - tensors return their value as numpy arrays
+```
+
+There are several notations to run operations that do the same thing:
+
+```python
+session.run(my_op)
+my_op.run(session=session)
+my_op.run() # Assumes the "default session"
+
+session.run(tensor)
+tensor.eval(session=session)
+tensor.eval() # Assumes the "default session"
+```
+
+You can set the default session using `with`, allowing shorter code:
+
+```python
+tensor = tf.Variable(tf.truncated_normal([1]))
+
 with tf.Session() as sess:
     tf.global_variables_initializer().run() # Initialize variables before evaluation.
     print(tensor.eval())
 ```
 
-TODO: Filling in placeholders
-
-For working in a shell or notebook, you can use the `InteractiveSession`, which sets itself as default session on construction.
+When working in a shell or notebook, you can use the `InteractiveSession`, which sets itself as default session on construction.
 
 ```python
 # Define operations in advance
@@ -105,6 +125,21 @@ sess = tf.InteractiveSession()
 # Crunch numbers
 tf.global_variables_initializer().run() # Initialize variables before evaluation.
 print(tensor.eval())
+```
+
+## Placeholders
+
+Placeholder values need to be provided when running operations that depend on them.
+
+```python
+placeholder = tf.placeholder(tf.int32, (None, 2))
+constant = tf.constant(1)
+result = placeholder[:,0] * placeholder[:,1] + constant
+
+with tf.Session():
+    with tf.Session():
+    print(constant.eval()) # Prints: 1
+    print(result.eval({placeholder:[[1, 2], [2, 2], [3, 2]]})) # Prints: [3 5 7]
 ```
 
 # Saving progress
@@ -165,9 +200,6 @@ Output:
 INFO:tensorflow:Restoring parameters from ./save-folder/save-filename-500
 [501]
 ```
-
-# GPU assignment
-
 
 # Tensorboard
 TensorBoard is a suite of web applications for inspecting and understanding your TensorFlow runs and graphs. It helps engineers to analyze, visualize, and debug TensorFlow graphs. The advantage of this add-on is that you don't have to write your own visualization tools for the loss curve or the training and validation curves. 
