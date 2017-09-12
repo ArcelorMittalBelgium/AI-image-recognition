@@ -1,6 +1,6 @@
 ---
 title: "Image Operations"
-sequence: 4
+sequence: 2
 ---
 
 OpenCV is the most widely used Computer Vision Library out there. OpenCV is a cross-platform library using which we can develop real-time computer vision applications. It mainly focuses on image processing, video capture and analysis including features like face detection and object detection. It is very powerful and offers many features suiting the needs of anyone requiring Image Processing.

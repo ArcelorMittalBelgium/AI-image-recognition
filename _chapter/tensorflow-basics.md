@@ -1,6 +1,6 @@
 ---
 title: "Tensorflow Basics"
-sequence: 2
+sequence: 3
 ---
 
 Originating from Google Brain Team, Tensorflow is now an open source library

@@ -1,6 +1,6 @@
 ---
 title: "Cloud deployment"
-sequence: 3
+sequence: 5
 ---
 
 Some related links:
